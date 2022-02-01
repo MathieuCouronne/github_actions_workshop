@@ -1,0 +1,10 @@
+on: push
+
+jobs:
+  compilations:
+    runs-on: ubuntu_latest
+    container: epitechcontent/epitest-docker:devel
+    steps:
+      -names: compilation
+      
+
