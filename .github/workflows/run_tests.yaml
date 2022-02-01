@@ -19,3 +19,17 @@ jobs:
 
       - name: Show coverage
         run: make coverage
+
+  functional-tests:
+    runs-on: ubuntu-20.04
+    container: epitechcontent/epitest-docker:devel
+    if: &{ { github.event.workflow run.conclusion == 'success' } }
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        run: make
+
+      - name: Run tests
+        run: ./test.sh
