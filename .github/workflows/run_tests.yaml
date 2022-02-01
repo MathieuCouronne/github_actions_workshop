@@ -11,5 +11,11 @@ jobs:
     container: epitechcontent/epitest-docker:devel
     if: &{{ github.event.workflow run.conclusion == 'success'}}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Build
         run: make tests_run
+
+      - name: Show coverage
+        run: make coverage
