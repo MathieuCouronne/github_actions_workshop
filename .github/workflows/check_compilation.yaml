@@ -1,10 +1,14 @@
-on: push
+name: Check compilation
+on:
+  push:
+    master
 
 jobs:
   compilations:
     runs-on: ubuntu_latest
     container: epitechcontent/epitest-docker:devel
     steps:
-      -names: compilation
+      -names: checkout
+      uses: actions/checkout@v2
       
 
